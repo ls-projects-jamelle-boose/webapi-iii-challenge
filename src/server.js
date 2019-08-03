@@ -1,9 +1,10 @@
 const express = require("express");
-const moment = require("moment");
-// const cors = require("cors")
+const cors = require("cors");
+const logger = require("./middleware/logger");
 
 const server = express();
 server.use(express.json());
+server.use(cors());
 
 server.use(logger);
 
@@ -12,12 +13,5 @@ server.get("/", (req, res) => {
 });
 
 //custom middleware
-
-function logger(req, res, next) {
-  let now = moment().format();
-
-  console.log(`${req.method} ${req.url} ${now}`);
-  next();
-}
 
 module.exports = server;
