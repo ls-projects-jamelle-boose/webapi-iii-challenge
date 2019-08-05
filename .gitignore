@@ -64,4 +64,4 @@ typings/
 .vscode
 
 # ESLintrc
-.eslintrc.js
+/.eslintrc.js
